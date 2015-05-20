@@ -1,0 +1,127 @@
+//
+//  MeStoreViewController.m
+//  POOL
+//
+//  Created by king on 15-2-12.
+//  Copyright (c) 2015年 king. All rights reserved.
+//
+
+#import "MeStoreViewController.h"
+
+#import "MeStoreGoodsViewController.h"
+
+@interface MeStoreViewController ()
+
+@end
+
+@implementation MeStoreViewController
+
+- (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
+{
+    self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
+    if (self) {
+        // Custom initialization
+    }
+    return self;
+}
+
+- (void)viewDidLoad
+{
+    [super viewDidLoad];
+    
+    self.myTitleLabel.text = @"商城";
+    
+    [self showBack];
+
+    
+    _tableView = [[UITableView alloc]initWithFrame:CGRectMake(0, 64, SCREEN_WIDTH, SCREEN_HEIGHT - 64) style:UITableViewStylePlain];
+    _tableView.delegate = self;
+    _tableView.dataSource = self;
+    [self.view addSubview:_tableView];
+    
+    _dataArray = [[NSMutableArray alloc]initWithObjects:@"产品A",@"产品B",@"产品C", nil];
+    
+    UIImageView *hea = [[UIImageView alloc]initWithFrame:CGRectMake(0, 0, SCREEN_WIDTH, 150)];
+    hea.image = [UIImage imageNamed:@"demo"];
+    _tableView.tableHeaderView = hea;
+    
+    
+    
+    // Do any additional setup after loading the view.
+}
+
+#pragma mark tableview delegate
+
+- (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView{
+    
+    return 1;
+    
+}
+- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{
+    
+    return 3;
+    
+}
+
+- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
+    
+    return 50;
+    
+}
+
+-(CGFloat)tableView:(UITableView *)tableView heightForFooterInSection:(NSInteger)section{
+    
+    return 1;
+    
+}
+- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
+    
+    static NSString *myCell = @"cell";
+    
+    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:myCell];
+    
+    if (cell == nil) {
+    
+        cell = [[UITableViewCell alloc]initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:myCell];
+    
+    }
+    
+    cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
+    
+    cell.textLabel.text = [_dataArray objectAtIndex:indexPath.row];
+    
+
+    
+    return cell;
+    
+}
+
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
+    
+    [tableView deselectRowAtIndexPath:indexPath animated:YES];
+    
+    
+    MeStoreGoodsViewController *goo = [[MeStoreGoodsViewController alloc]init];
+    goo.goodStr = [_dataArray objectAtIndex:indexPath.row];
+    [self.navigationController pushViewController:goo animated:YES];
+    
+}
+
+- (void)didReceiveMemoryWarning
+{
+    [super didReceiveMemoryWarning];
+    // Dispose of any resources that can be recreated.
+}
+
+/*
+#pragma mark - Navigation
+
+// In a storyboard-based application, you will often want to do a little preparation before navigation
+- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
+{
+    // Get the new view controller using [segue destinationViewController].
+    // Pass the selected object to the new view controller.
+}
+*/
+
+@end

@@ -1,0 +1,197 @@
+//
+//  Prefix header
+//
+//  The contents of this file are implicitly included at the beginning of every source file.
+//
+
+#import <Availability.h>
+
+#ifndef __IPHONE_5_0
+#warning "This project uses features only available in iOS SDK 5.0 and later."
+#endif
+
+#ifdef __OBJC__
+    #import <UIKit/UIKit.h>
+    #import <Foundation/Foundation.h>
+
+
+
+
+
+//#import "ChatDemoUIDefine.h"
+//#import "WCAlertView.h"
+//#import "TTGlobalUICommon.h"
+//#import "UIViewController+HUD.h"
+//#import "UIViewController+DismissKeyboard.h"
+//#import "NSString+Valid.h"
+//
+//#define MR_SHORTHAND
+////#import "CoreData+MagicalRecord.h"
+//
+//#import "EMSDKFull.h"
+#import "EaseMob.h"
+
+
+
+
+
+
+
+
+
+
+
+#endif
+
+
+
+#define R_G_B_COLOR(r,g,b) [UIColor colorWithRed:r/255.0 green:g/255.0 blue:b/255.0 alpha:1]
+#define CLEARCOLOR [UIColor clearColor]
+#define X_OFF_SET 0
+#define Y_OFF_SET 0
+#define SCREEN_WIDTH [UIScreen mainScreen].bounds.size.width
+#define SCREEN_HEIGHT [UIScreen mainScreen].bounds.size.height
+#define SYSTEM_VERSION [UIDevice currentDevice].systemVersion.floatValue
+#define BAR_HEIGHT 50
+#define NAV_HEIGHT 64
+
+
+#if TARGET_IPHONE_SIMULATOR
+#define SIMULATOR 1
+#elif TARGET_OS_IPHONE
+#define SIMULATOR 0
+#endif
+
+#ifdef DEBUG
+#define NSLog(...) NSLog(__VA_ARGS__)
+#define debugMethod() NSLog(@"%s", __func__)
+#else
+#define NSLog(...)
+#define debugMethod()
+#endif
+
+#if TARGET_IPHONE_SIMULATOR
+#define SIMULATOR 1
+#elif TARGET_OS_IPHONE
+#define SIMULATOR 0
+#endif
+
+
+
+#define HOST_URL @"http://m.pkstar.com.cn/"
+#define DEBUG_HOST_URL @"http://m.debug.pkstar.com.cn/"
+//#define DEBUG_HOST_URL @"http://m.pkstar.com.cn/"
+
+
+#define CURRENT_UUID [[UIDevice currentDevice] identifierForVendor].UUIDString
+#define CURRENT_API @"1"
+#define CURRENT_TIME (int)[[NSDate date] timeIntervalSince1970]
+#define CURRENT_SIGN_KEY @"166ee015c0e0934a8781e0c86a197c6e"
+#define CURRENT_AUTH_KEY @"authKey"
+
+
+//#define AUTH_KEY @"authKey"
+
+
+#define DEFAULT_COLOR R_G_B_COLOR(234, 234, 234)
+
+#import "BaseViewController.h"
+#import "MMProgressHUD.h"
+#import "NSString+Hashing.h"
+
+#import "MJRefresh.h"
+
+#import "Reachability.h"
+
+
+#define USER_NAME @"userName"
+#define USER_PASSWORD @"userPassword"
+
+
+#define USER_ID @"userId"
+
+#define HUAN_NAME @"huan_name"
+
+#define HUAN_PASSWORD @"huan_pass"
+
+#define USER_HIDDEN @"user_hidden"
+
+#define USER_LAT @"user_lat"
+
+#define USER_LONG @"user_long"
+
+
+#import "UMSocial.h"
+
+
+
+#define MY_INFO_HEADER @"infoheader"
+#define MY_INFO_NAME @"infoname"
+#define MY_INFO_SEX @"infosex"
+#define MY_INFO_AGE @"infoage"
+#define MY_INFO_BIO @"bio"
+#define MY_INFO_affectiveStatus @"affectiveStatus"
+#define MY_INFO_company @"company"
+#define MY_INFO_occupation @"occupation"
+#define MY_INFO_payRole @"payRole"
+#define MY_INFO_interest @"interest"
+#define MY_INFO_hometown @"hometown"
+#define MY_INFO_PK_CREDIT @"pkCredit"
+#define MY_INFO_CITY_RANK @"cityRank"
+#define MY_INFO_WORLD_RANK @"worldRank"
+
+
+
+
+
+
+
+
+
+
+
+
+
+#define RGBACOLOR(r,g,b,a) [UIColor colorWithRed:(r)/255.0 green:(g)/255.0 blue:(b)/255.0 alpha:(a)]
+
+
+#import "EaseMob.h"
+
+
+#import "UIViewController+HUD.h"
+
+#define FONTWITHNAME_HEITI @"Heiti SC"//字体
+
+
+
+
+
+#define HeadImg @"http://115.28.86.228/university/images/"//头像
+
+
+
+#define XIANG_CE @"http://115.28.86.228/university/images_c/"//相册
+
+
+#define fankui @"http://115.28.86.228/university/Interface.php"  //反馈
+
+#define haoyou @"http://115.28.86.228/university/Interface.php"  //我的好友
+
+#define xiayou @"http://115.28.86.228/university/Interface.php"//校友联谊
+
+#define fujin @"http://115.28.86.228/university/Interface.php" //附近好友
+
+#define TIEZIXQImg @"http://115.28.86.228/university/images_c/"//帖子详情图片
+
+
+
+
+
+
+
+
+
+
+
+
+
